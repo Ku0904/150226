@@ -1,0 +1,1856 @@
+[
+    {
+        "id": "0e0ff0ab2da54f27",
+        "type": "tab",
+        "label": "Energy Dashboard",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "7475b6716c224c37",
+        "type": "ui-base",
+        "name": "Energy Dashboard",
+        "path": "/dashboard",
+        "appIcon": "",
+        "includeClientData": true,
+        "acceptsClientConfig": [
+            "ui-notification",
+            "ui-control"
+        ],
+        "showPathInSidebar": false,
+        "headerContent": "page",
+        "navigationStyle": "default",
+        "titleBarStyle": "default",
+        "showReconnectNotification": true,
+        "notificationDisplayTime": 2,
+        "showDisconnectNotification": true,
+        "allowInstall": false
+    },
+    {
+        "id": "981ee1e330d54b59",
+        "type": "ui-theme",
+        "name": "Compliance Theme",
+        "colors": {
+            "surface": "#f5f7fa",
+            "primary": "#1f6feb",
+            "bgPage": "#e9eef5",
+            "groupBg": "#ffffff",
+            "groupOutline": "#cfd8e3"
+        },
+        "sizes": {
+            "density": "comfortable",
+            "pagePadding": "16px",
+            "groupGap": "12px",
+            "groupBorderRadius": "8px",
+            "widgetGap": "10px"
+        }
+    },
+    {
+        "id": "0eb90a6528534643",
+        "type": "ui-page",
+        "name": "Energy Compliance",
+        "ui": "7475b6716c224c37",
+        "path": "/energy",
+        "icon": "bolt",
+        "layout": "grid",
+        "theme": "981ee1e330d54b59",
+        "breakpoints": [
+            {
+                "name": "Default",
+                "px": 0,
+                "cols": 3
+            },
+            {
+                "name": "Tablet",
+                "px": 576,
+                "cols": 6
+            },
+            {
+                "name": "Small Desktop",
+                "px": 768,
+                "cols": 9
+            },
+            {
+                "name": "Desktop",
+                "px": 1024,
+                "cols": 12
+            }
+        ],
+        "order": 1,
+        "className": "",
+        "visible": true,
+        "disabled": false
+    },
+    {
+        "id": "3f05608734004a42",
+        "type": "ui-group",
+        "name": "Summary Gauges",
+        "page": "0eb90a6528534643",
+        "width": "12",
+        "height": 2,
+        "order": 1,
+        "showTitle": true,
+        "className": "",
+        "visible": "true",
+        "disabled": "false",
+        "groupType": "default"
+    },
+    {
+        "id": "2400a5f6e30e4bd2",
+        "type": "ui-group",
+        "name": "Controls",
+        "page": "0eb90a6528534643",
+        "width": "12",
+        "height": 2,
+        "order": 2,
+        "showTitle": true,
+        "className": "",
+        "visible": "true",
+        "disabled": "false",
+        "groupType": "default"
+    },
+    {
+        "id": "4a629acfd5734e54",
+        "type": "ui-group",
+        "name": "Voltage",
+        "page": "0eb90a6528534643",
+        "width": "12",
+        "height": 3,
+        "order": 3,
+        "showTitle": true,
+        "className": "",
+        "visible": "true",
+        "disabled": "false",
+        "groupType": "default"
+    },
+    {
+        "id": "60a00e1968d44191",
+        "type": "ui-group",
+        "name": "Current",
+        "page": "0eb90a6528534643",
+        "width": "12",
+        "height": 3,
+        "order": 4,
+        "showTitle": true,
+        "className": "",
+        "visible": "true",
+        "disabled": "false",
+        "groupType": "default"
+    },
+    {
+        "id": "35d3985fd1ba4b2e",
+        "type": "ui-group",
+        "name": "Power Factor",
+        "page": "0eb90a6528534643",
+        "width": "12",
+        "height": 3,
+        "order": 5,
+        "showTitle": true,
+        "className": "",
+        "visible": "true",
+        "disabled": "false",
+        "groupType": "default"
+    },
+    {
+        "id": "9f83840543564801",
+        "type": "ui-group",
+        "name": "Frequency",
+        "page": "0eb90a6528534643",
+        "width": "12",
+        "height": 3,
+        "order": 6,
+        "showTitle": true,
+        "className": "",
+        "visible": "true",
+        "disabled": "false",
+        "groupType": "default"
+    },
+    {
+        "id": "e57dfeca129e4532",
+        "type": "ui-group",
+        "name": "Data Logger",
+        "page": "0eb90a6528534643",
+        "width": "12",
+        "height": 2,
+        "order": 7,
+        "showTitle": true,
+        "className": "",
+        "visible": "true",
+        "disabled": "false",
+        "groupType": "default"
+    },
+    {
+        "id": "770c38281e1443a4",
+        "type": "modbus-client",
+        "name": "Energy Meter",
+        "clienttype": "serial",
+        "bufferCommands": true,
+        "stateLogEnabled": false,
+        "queueLogEnabled": false,
+        "failureLogEnabled": true,
+        "tcpHost": "127.0.0.1",
+        "tcpPort": 502,
+        "tcpType": "DEFAULT",
+        "serialPort": "COM3",
+        "serialType": "RTU-BUFFERD",
+        "serialBaudrate": "9600",
+        "serialDatabits": 8,
+        "serialStopbits": "2",
+        "serialParity": "none",
+        "serialConnectionDelay": 100,
+        "serialAsciiResponseStartDelimiter": "0x3A",
+        "unit_id": 1,
+        "commandDelay": 1,
+        "clientTimeout": 1000,
+        "reconnectOnTimeout": true,
+        "reconnectTimeout": 2000,
+        "parallelUnitIdsAllowed": true,
+        "showErrors": false,
+        "showWarnings": true,
+        "showLogs": true
+    },
+    {
+        "id": "2014b9659a3741e3",
+        "type": "modbus-read",
+        "z": "0e0ff0ab2da54f27",
+        "name": "MODBUS READ",
+        "topic": "",
+        "showStatusActivities": true,
+        "logIOActivities": false,
+        "showErrors": true,
+        "showWarnings": true,
+        "unitid": "1",
+        "dataType": "InputRegister",
+        "adr": "20",
+        "quantity": "8",
+        "rate": "2",
+        "rateUnit": "s",
+        "delayOnStart": false,
+        "enableDeformedMessages": false,
+        "startDelayTime": "",
+        "server": "770c38281e1443a4",
+        "useIOFile": false,
+        "ioFile": "",
+        "useIOForPayload": false,
+        "emptyMsgOnFail": true,
+        "x": 120,
+        "y": 40,
+        "wires": [
+            [
+                "b644ca9296f84cb8"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "b644ca9296f84cb8",
+        "type": "buffer-parser",
+        "z": "0e0ff0ab2da54f27",
+        "name": "",
+        "data": "payload",
+        "dataType": "msg",
+        "specification": "spec",
+        "specificationType": "ui",
+        "items": [
+            {
+                "type": "floatle",
+                "name": "Voltage",
+                "offset": 0,
+                "length": 1,
+                "offsetbit": 0,
+                "scale": "1",
+                "mask": ""
+            },
+            {
+                "type": "floatle",
+                "name": "Current",
+                "offset": 4,
+                "length": 1,
+                "offsetbit": 0,
+                "scale": "1",
+                "mask": ""
+            },
+            {
+                "type": "floatle",
+                "name": "PowerFactor",
+                "offset": 8,
+                "length": 1,
+                "offsetbit": 0,
+                "scale": "1",
+                "mask": ""
+            },
+            {
+                "type": "floatle",
+                "name": "Frequency",
+                "offset": 12,
+                "length": 1,
+                "offsetbit": 0,
+                "scale": "1",
+                "mask": ""
+            }
+        ],
+        "swap1": "swap16",
+        "swap2": "",
+        "swap3": "",
+        "swap1Type": "swap",
+        "swap2Type": "swap",
+        "swap3Type": "swap",
+        "msgProperty": "payload",
+        "msgPropertyType": "str",
+        "resultType": "keyvalue",
+        "resultTypeType": "return",
+        "multipleResult": false,
+        "fanOutMultipleResult": false,
+        "setTopic": true,
+        "outputs": 1,
+        "x": 250,
+        "y": 100,
+        "wires": [
+            [
+                "9c05286ac5264f3d"
+            ]
+        ]
+    },
+    {
+        "id": "9c05286ac5264f3d",
+        "type": "function",
+        "z": "0e0ff0ab2da54f27",
+        "name": "Format readings",
+        "func": "const payload = msg.payload || {};\nconst now = new Date();\nconst timestamp = now.toLocaleString('en-GB', { hour12: false });\nconst reading = {\n    voltage: Number(payload.Voltage || 0).toFixed(2),\n    current: Number(payload.Current || 0).toFixed(2),\n    powerFactor: Number(payload.PowerFactor || 0).toFixed(2),\n    frequency: Number(payload.Frequency || 0).toFixed(2),\n    time: timestamp\n};\n\nlet rows = flow.get('logRows') || [];\nrows.unshift({\n    time: reading.time,\n    voltage: reading.voltage,\n    current: reading.current,\n    powerFactor: reading.powerFactor,\n    frequency: reading.frequency\n});\nrows = rows.slice(0, 400);\nflow.set('logRows', rows);\n\nreturn [\n    { payload: Number(reading.voltage), topic: 'Voltage', time: reading.time },\n    { payload: Number(reading.current), topic: 'Current', time: reading.time },\n    { payload: Number(reading.powerFactor), topic: 'Power Factor', time: reading.time },\n    { payload: Number(reading.frequency), topic: 'Frequency', time: reading.time },\n    { payload: rows, action: 'replace' }\n];",
+        "outputs": 5,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 440,
+        "y": 160,
+        "wires": [
+            [
+                "1367ceaed88f4f89",
+                "067108b930b54464",
+                "c1adfaa059b14485"
+            ],
+            [
+                "d76d468347684452",
+                "3c4eba2a7bc94a37"
+            ],
+            [
+                "4115e2f8be254f71",
+                "6ca63c65e4354958"
+            ],
+            [
+                "b23245fabedd4897",
+                "eac6a7ad216645d7"
+            ],
+            [
+                "fe521cfb9eab40be"
+            ]
+        ]
+    },
+    {
+        "id": "c1adfaa059b14485",
+        "type": "change",
+        "z": "0e0ff0ab2da54f27",
+        "name": "Timestamp text",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "time",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 460,
+        "y": 220,
+        "wires": [
+            [
+                "2c3c7adcb1c24a62"
+            ]
+        ]
+    },
+    {
+        "id": "2c3c7adcb1c24a62",
+        "type": "ui-text",
+        "group": "3f05608734004a42",
+        "order": 1,
+        "width": "4",
+        "height": "1",
+        "name": "Last update",
+        "label": "Last reading",
+        "format": "{{msg.payload}}",
+        "layout": "row-left",
+        "style": true,
+        "font": "",
+        "fontSize": 16,
+        "color": "#1f2937",
+        "wrapText": false,
+        "value": "payload",
+        "valueType": "msg",
+        "className": "",
+        "wires": []
+    },
+    {
+        "id": "fe521cfb9eab40be",
+        "type": "ui-table",
+        "group": "e57dfeca129e4532",
+        "name": "Data Log",
+        "order": 1,
+        "width": "12",
+        "height": "0",
+        "label": "Logged samples",
+        "columns": [
+            {
+                "key": "time",
+                "keyType": "key",
+                "title": "Time",
+                "type": "text",
+                "align": "start",
+                "width": ""
+            },
+            {
+                "key": "voltage",
+                "keyType": "key",
+                "title": "Voltage (V)",
+                "type": "text",
+                "align": "end",
+                "width": ""
+            },
+            {
+                "key": "current",
+                "keyType": "key",
+                "title": "Current (A)",
+                "type": "text",
+                "align": "end",
+                "width": ""
+            },
+            {
+                "key": "powerFactor",
+                "keyType": "key",
+                "title": "PF",
+                "type": "text",
+                "align": "end",
+                "width": ""
+            },
+            {
+                "key": "frequency",
+                "keyType": "key",
+                "title": "Frequency (Hz)",
+                "type": "text",
+                "align": "end",
+                "width": ""
+            }
+        ],
+        "autocols": false,
+        "maxrows": "10",
+        "mobileBreakpointType": "none",
+        "mobileBreakpoint": "",
+        "passthru": false,
+        "showSearch": true,
+        "selectionType": "none",
+        "deselect": true,
+        "action": "replace",
+        "wires": [
+            []
+        ],
+        "x": 860,
+        "y": 160,
+        "z": "0e0ff0ab2da54f27",
+        "className": ""
+    },
+    {
+        "id": "5035282039b748f2",
+        "type": "ui-button",
+        "z": "0e0ff0ab2da54f27",
+        "group": "e57dfeca129e4532",
+        "name": "",
+        "label": "Export CSV",
+        "order": 2,
+        "width": "3",
+        "height": "1",
+        "emulateClick": false,
+        "tooltip": "Write data-log to /tmp/energy-data-log.csv",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "mdi-download",
+        "iconPosition": "left",
+        "payload": "export",
+        "payloadType": "str",
+        "topic": "",
+        "topicType": "str",
+        "buttonColor": "#2563eb",
+        "textColor": "#ffffff",
+        "iconColor": "#ffffff",
+        "enableClick": true,
+        "enablePointerdown": false,
+        "pointerdownPayload": "",
+        "pointerdownPayloadType": "str",
+        "enablePointerup": false,
+        "pointerupPayload": "",
+        "pointerupPayloadType": "str",
+        "x": 220,
+        "y": 240,
+        "wires": [
+            [
+                "6a231ddb3f6c48a3"
+            ]
+        ]
+    },
+    {
+        "id": "79b0d80fa8d64117",
+        "type": "ui-button",
+        "z": "0e0ff0ab2da54f27",
+        "group": "e57dfeca129e4532",
+        "name": "",
+        "label": "Clear log",
+        "order": 3,
+        "width": "3",
+        "height": "1",
+        "emulateClick": false,
+        "tooltip": "Reset table data",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "mdi-delete",
+        "iconPosition": "left",
+        "payload": "clear",
+        "payloadType": "str",
+        "topic": "",
+        "topicType": "str",
+        "buttonColor": "#dc2626",
+        "textColor": "#ffffff",
+        "iconColor": "#ffffff",
+        "enableClick": true,
+        "enablePointerdown": false,
+        "pointerdownPayload": "",
+        "pointerdownPayloadType": "str",
+        "enablePointerup": false,
+        "pointerupPayload": "",
+        "pointerupPayloadType": "str",
+        "x": 220,
+        "y": 280,
+        "wires": [
+            [
+                "7a11e6a6524a4e6a"
+            ]
+        ]
+    },
+    {
+        "id": "6a231ddb3f6c48a3",
+        "type": "function",
+        "z": "0e0ff0ab2da54f27",
+        "name": "Export log",
+        "func": "const rows = flow.get('logRows') || [];\nif (!rows.length) { msg.ui_notification = {type:'warning', message:'No rows to export'}; return msg; }\nconst header = ['Time','Voltage','Current','PowerFactor','Frequency'];\nconst body = rows.map(r => [r.time,r.voltage,r.current,r.powerFactor,r.frequency].join(','));\nmsg.payload = [header.join(','), ...body].join('\n');\nmsg.filename = '/tmp/energy-data-log.csv';\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 420,
+        "y": 240,
+        "wires": [
+            [
+                "6e1e11768d0b43ea"
+            ]
+        ]
+    },
+    {
+        "id": "7a11e6a6524a4e6a",
+        "type": "function",
+        "z": "0e0ff0ab2da54f27",
+        "name": "Clear log",
+        "func": "flow.set('logRows', []);\nmsg.payload = [];\nmsg.action = 'replace';\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 420,
+        "y": 280,
+        "wires": [
+            [
+                "fe521cfb9eab40be"
+            ]
+        ]
+    },
+    {
+        "id": "6e1e11768d0b43ea",
+        "type": "file",
+        "z": "0e0ff0ab2da54f27",
+        "name": "Write CSV",
+        "filename": "/tmp/energy-data-log.csv",
+        "appendNewline": true,
+        "createDir": true,
+        "overwriteFile": "true",
+        "encoding": "none",
+        "x": 620,
+        "y": 240,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "6f1abbc7c1454207",
+        "type": "function",
+        "z": "0e0ff0ab2da54f27",
+        "name": "Chart zoom control",
+        "func": "const key = msg.topic || 'chart';\nconst dir = msg.payload;\nconst stateKey = 'zoom-' + key;\nconst state = flow.get(stateKey) || { start: 0, end: 100 };\nconst step = 10;\nif (dir === 'in') {\n    const span = state.end - state.start;\n    if (span > 20) {\n        state.start += step/2;\n        state.end -= step/2;\n    }\n} else if (dir === 'out') {\n    state.start = Math.max(0, state.start - step/2);\n    state.end = Math.min(100, state.end + step/2);\n}\nflow.set(stateKey, state);\nmsg.ui_update = {\n    chartOptions: {\n        dataZoom: [{ type: 'slider', start: state.start, end: state.end, realtime: true, showDetail: true, bottom: 10 }]\n    }\n};\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 620,
+        "y": 420,
+        "wires": [
+            [
+                "47ae808c8eb64b56",
+                "46279f5613754b2b",
+                "5fd45cb6621245f9",
+                "e51b5f467f434ce0"
+            ]
+        ]
+    },
+    {
+        "id": "bdb79300f66140b1",
+        "type": "inject",
+        "z": "0e0ff0ab2da54f27",
+        "name": "Defaults on start",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "prop": "",
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.5,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 140,
+        "y": 60,
+        "wires": [
+            [
+                "e82f6fc2601843bb"
+            ]
+        ]
+    },
+    {
+        "id": "e82f6fc2601843bb",
+        "type": "change",
+        "z": "0e0ff0ab2da54f27",
+        "name": "Enable all + clear log",
+        "rules": [
+            {
+                "t": "set",
+                "p": "voltageEnabled",
+                "pt": "flow",
+                "to": "true",
+                "tot": "bool"
+            },
+            {
+                "t": "set",
+                "p": "currentEnabled",
+                "pt": "flow",
+                "to": "true",
+                "tot": "bool"
+            },
+            {
+                "t": "set",
+                "p": "pfEnabled",
+                "pt": "flow",
+                "to": "true",
+                "tot": "bool"
+            },
+            {
+                "t": "set",
+                "p": "frequencyEnabled",
+                "pt": "flow",
+                "to": "true",
+                "tot": "bool"
+            },
+            {
+                "t": "set",
+                "p": "logRows",
+                "pt": "flow",
+                "to": "[]",
+                "tot": "json"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 360,
+        "y": 60,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "46d6c835f7494314",
+        "type": "ui-button",
+        "z": "0e0ff0ab2da54f27",
+        "group": "2400a5f6e30e4bd2",
+        "name": "",
+        "label": "Start Voltage",
+        "order": 1,
+        "width": "3",
+        "height": "1",
+        "emulateClick": false,
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "mdi-play",
+        "iconPosition": "left",
+        "payload": true,
+        "payloadType": "bool",
+        "topic": "voltageEnabled",
+        "topicType": "str",
+        "buttonColor": "#16a34a",
+        "textColor": "#ffffff",
+        "iconColor": "#ffffff",
+        "enableClick": true,
+        "enablePointerdown": false,
+        "pointerdownPayload": "",
+        "pointerdownPayloadType": "str",
+        "enablePointerup": false,
+        "pointerupPayload": "",
+        "pointerupPayloadType": "str",
+        "x": 160,
+        "y": 100,
+        "wires": [
+            [
+                "4bc5efc1ddcd42fd"
+            ]
+        ]
+    },
+    {
+        "id": "031d5f1398874302",
+        "type": "ui-button",
+        "z": "0e0ff0ab2da54f27",
+        "group": "2400a5f6e30e4bd2",
+        "name": "",
+        "label": "Stop Voltage",
+        "order": 2,
+        "width": "3",
+        "height": "1",
+        "emulateClick": false,
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "mdi-stop",
+        "iconPosition": "left",
+        "payload": false,
+        "payloadType": "bool",
+        "topic": "voltageEnabled",
+        "topicType": "str",
+        "buttonColor": "#dc2626",
+        "textColor": "#ffffff",
+        "iconColor": "#ffffff",
+        "enableClick": true,
+        "enablePointerdown": false,
+        "pointerdownPayload": "",
+        "pointerdownPayloadType": "str",
+        "enablePointerup": false,
+        "pointerupPayload": "",
+        "pointerupPayloadType": "str",
+        "x": 160,
+        "y": 130,
+        "wires": [
+            [
+                "4bc5efc1ddcd42fd"
+            ]
+        ]
+    },
+    {
+        "id": "5160e9fb18dc454e",
+        "type": "ui-button",
+        "z": "0e0ff0ab2da54f27",
+        "group": "2400a5f6e30e4bd2",
+        "name": "",
+        "label": "Start Current",
+        "order": 3,
+        "width": "3",
+        "height": "1",
+        "emulateClick": false,
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "mdi-play",
+        "iconPosition": "left",
+        "payload": true,
+        "payloadType": "bool",
+        "topic": "currentEnabled",
+        "topicType": "str",
+        "buttonColor": "#16a34a",
+        "textColor": "#ffffff",
+        "iconColor": "#ffffff",
+        "enableClick": true,
+        "enablePointerdown": false,
+        "pointerdownPayload": "",
+        "pointerdownPayloadType": "str",
+        "enablePointerup": false,
+        "pointerupPayload": "",
+        "pointerupPayloadType": "str",
+        "x": 160,
+        "y": 160,
+        "wires": [
+            [
+                "47a3bba2e60b41a6"
+            ]
+        ]
+    },
+    {
+        "id": "5664442844a84d57",
+        "type": "ui-button",
+        "z": "0e0ff0ab2da54f27",
+        "group": "2400a5f6e30e4bd2",
+        "name": "",
+        "label": "Stop Current",
+        "order": 4,
+        "width": "3",
+        "height": "1",
+        "emulateClick": false,
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "mdi-stop",
+        "iconPosition": "left",
+        "payload": false,
+        "payloadType": "bool",
+        "topic": "currentEnabled",
+        "topicType": "str",
+        "buttonColor": "#dc2626",
+        "textColor": "#ffffff",
+        "iconColor": "#ffffff",
+        "enableClick": true,
+        "enablePointerdown": false,
+        "pointerdownPayload": "",
+        "pointerdownPayloadType": "str",
+        "enablePointerup": false,
+        "pointerupPayload": "",
+        "pointerupPayloadType": "str",
+        "x": 160,
+        "y": 190,
+        "wires": [
+            [
+                "47a3bba2e60b41a6"
+            ]
+        ]
+    },
+    {
+        "id": "db03a5e79ae74732",
+        "type": "ui-button",
+        "z": "0e0ff0ab2da54f27",
+        "group": "2400a5f6e30e4bd2",
+        "name": "",
+        "label": "Start Power Factor",
+        "order": 5,
+        "width": "3",
+        "height": "1",
+        "emulateClick": false,
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "mdi-play",
+        "iconPosition": "left",
+        "payload": true,
+        "payloadType": "bool",
+        "topic": "pfEnabled",
+        "topicType": "str",
+        "buttonColor": "#16a34a",
+        "textColor": "#ffffff",
+        "iconColor": "#ffffff",
+        "enableClick": true,
+        "enablePointerdown": false,
+        "pointerdownPayload": "",
+        "pointerdownPayloadType": "str",
+        "enablePointerup": false,
+        "pointerupPayload": "",
+        "pointerupPayloadType": "str",
+        "x": 160,
+        "y": 220,
+        "wires": [
+            [
+                "2633b26ceb3d4185"
+            ]
+        ]
+    },
+    {
+        "id": "4c7290eca62b4a7f",
+        "type": "ui-button",
+        "z": "0e0ff0ab2da54f27",
+        "group": "2400a5f6e30e4bd2",
+        "name": "",
+        "label": "Stop Power Factor",
+        "order": 6,
+        "width": "3",
+        "height": "1",
+        "emulateClick": false,
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "mdi-stop",
+        "iconPosition": "left",
+        "payload": false,
+        "payloadType": "bool",
+        "topic": "pfEnabled",
+        "topicType": "str",
+        "buttonColor": "#dc2626",
+        "textColor": "#ffffff",
+        "iconColor": "#ffffff",
+        "enableClick": true,
+        "enablePointerdown": false,
+        "pointerdownPayload": "",
+        "pointerdownPayloadType": "str",
+        "enablePointerup": false,
+        "pointerupPayload": "",
+        "pointerupPayloadType": "str",
+        "x": 160,
+        "y": 250,
+        "wires": [
+            [
+                "2633b26ceb3d4185"
+            ]
+        ]
+    },
+    {
+        "id": "0f3f9319e95a4ab5",
+        "type": "ui-button",
+        "z": "0e0ff0ab2da54f27",
+        "group": "2400a5f6e30e4bd2",
+        "name": "",
+        "label": "Start Frequency",
+        "order": 7,
+        "width": "3",
+        "height": "1",
+        "emulateClick": false,
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "mdi-play",
+        "iconPosition": "left",
+        "payload": true,
+        "payloadType": "bool",
+        "topic": "frequencyEnabled",
+        "topicType": "str",
+        "buttonColor": "#16a34a",
+        "textColor": "#ffffff",
+        "iconColor": "#ffffff",
+        "enableClick": true,
+        "enablePointerdown": false,
+        "pointerdownPayload": "",
+        "pointerdownPayloadType": "str",
+        "enablePointerup": false,
+        "pointerupPayload": "",
+        "pointerupPayloadType": "str",
+        "x": 160,
+        "y": 280,
+        "wires": [
+            [
+                "15c9aaae9b7d46b4"
+            ]
+        ]
+    },
+    {
+        "id": "2c97b7cf89be4e41",
+        "type": "ui-button",
+        "z": "0e0ff0ab2da54f27",
+        "group": "2400a5f6e30e4bd2",
+        "name": "",
+        "label": "Stop Frequency",
+        "order": 8,
+        "width": "3",
+        "height": "1",
+        "emulateClick": false,
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "mdi-stop",
+        "iconPosition": "left",
+        "payload": false,
+        "payloadType": "bool",
+        "topic": "frequencyEnabled",
+        "topicType": "str",
+        "buttonColor": "#dc2626",
+        "textColor": "#ffffff",
+        "iconColor": "#ffffff",
+        "enableClick": true,
+        "enablePointerdown": false,
+        "pointerdownPayload": "",
+        "pointerdownPayloadType": "str",
+        "enablePointerup": false,
+        "pointerupPayload": "",
+        "pointerupPayloadType": "str",
+        "x": 160,
+        "y": 310,
+        "wires": [
+            [
+                "15c9aaae9b7d46b4"
+            ]
+        ]
+    },
+    {
+        "id": "4bc5efc1ddcd42fd",
+        "type": "change",
+        "z": "0e0ff0ab2da54f27",
+        "name": "Set Voltage flag",
+        "rules": [
+            {
+                "t": "set",
+                "p": "voltageEnabled",
+                "pt": "flow",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 360,
+        "y": 145,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "47a3bba2e60b41a6",
+        "type": "change",
+        "z": "0e0ff0ab2da54f27",
+        "name": "Set Current flag",
+        "rules": [
+            {
+                "t": "set",
+                "p": "currentEnabled",
+                "pt": "flow",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 360,
+        "y": 205,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "2633b26ceb3d4185",
+        "type": "change",
+        "z": "0e0ff0ab2da54f27",
+        "name": "Set Power Factor flag",
+        "rules": [
+            {
+                "t": "set",
+                "p": "pfEnabled",
+                "pt": "flow",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 360,
+        "y": 265,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "15c9aaae9b7d46b4",
+        "type": "change",
+        "z": "0e0ff0ab2da54f27",
+        "name": "Set Frequency flag",
+        "rules": [
+            {
+                "t": "set",
+                "p": "frequencyEnabled",
+                "pt": "flow",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 360,
+        "y": 325,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "1367ceaed88f4f89",
+        "type": "ui-gauge",
+        "z": "0e0ff0ab2da54f27",
+        "name": "Voltage Gauge",
+        "group": "3f05608734004a42",
+        "order": 2,
+        "width": "3",
+        "height": "4",
+        "gtype": "gauge-half",
+        "gstyle": "rounded",
+        "title": "Voltage",
+        "units": "V",
+        "icon": "",
+        "segmentColor": "",
+        "min": 0,
+        "max": 500,
+        "value": "payload",
+        "valueType": "msg",
+        "sizeGap": "",
+        "sizeThickness": "22",
+        "sizeKeyThickness": "",
+        "alwaysShowTitle": false,
+        "segments": [],
+        "className": "",
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "d76d468347684452",
+        "type": "ui-gauge",
+        "z": "0e0ff0ab2da54f27",
+        "name": "Current Gauge",
+        "group": "3f05608734004a42",
+        "order": 3,
+        "width": "3",
+        "height": "4",
+        "gtype": "gauge-half",
+        "gstyle": "rounded",
+        "title": "Current",
+        "units": "A",
+        "icon": "",
+        "segmentColor": "",
+        "min": 0,
+        "max": 500,
+        "value": "payload",
+        "valueType": "msg",
+        "sizeGap": "",
+        "sizeThickness": "22",
+        "sizeKeyThickness": "",
+        "alwaysShowTitle": false,
+        "segments": [],
+        "className": "",
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "4115e2f8be254f71",
+        "type": "ui-gauge",
+        "z": "0e0ff0ab2da54f27",
+        "name": "Power Factor Gauge",
+        "group": "3f05608734004a42",
+        "order": 4,
+        "width": "3",
+        "height": "4",
+        "gtype": "gauge-half",
+        "gstyle": "rounded",
+        "title": "Power Factor",
+        "units": "PF",
+        "icon": "",
+        "segmentColor": "",
+        "min": 0,
+        "max": 1,
+        "value": "payload",
+        "valueType": "msg",
+        "sizeGap": "",
+        "sizeThickness": "22",
+        "sizeKeyThickness": "",
+        "alwaysShowTitle": false,
+        "segments": [],
+        "className": "",
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "b23245fabedd4897",
+        "type": "ui-gauge",
+        "z": "0e0ff0ab2da54f27",
+        "name": "Frequency Gauge",
+        "group": "3f05608734004a42",
+        "order": 5,
+        "width": "3",
+        "height": "4",
+        "gtype": "gauge-half",
+        "gstyle": "rounded",
+        "title": "Frequency",
+        "units": "Hz",
+        "icon": "",
+        "segmentColor": "",
+        "min": 0,
+        "max": 65,
+        "value": "payload",
+        "valueType": "msg",
+        "sizeGap": "",
+        "sizeThickness": "22",
+        "sizeKeyThickness": "",
+        "alwaysShowTitle": false,
+        "segments": [],
+        "className": "",
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "47ae808c8eb64b56",
+        "type": "ui-chart",
+        "z": "0e0ff0ab2da54f27",
+        "group": "4a629acfd5734e54",
+        "name": "Voltage Chart",
+        "order": 1,
+        "width": "12",
+        "height": 8,
+        "label": "Voltage",
+        "chartType": "line",
+        "bins": 0,
+        "category": "time",
+        "categoryType": "none",
+        "xAxisType": "time",
+        "xAxisProperty": "time",
+        "xAxisPropertyType": "msg",
+        "xAxisFormatType": "{HH}:{mm}:{ss}",
+        "xAxisFormat": "",
+        "xAxisLabel": "",
+        "yAxisLabel": "V",
+        "yAxisProperty": "payload",
+        "yAxisPropertyType": "msg",
+        "ymin": "",
+        "ymax": "",
+        "colors": [
+            "#1f6feb",
+            "#16a34a",
+            "#ef4444",
+            "#f59e0b",
+            "#8b5cf6",
+            "#0ea5e9",
+            "#6366f1"
+        ],
+        "textColor": [
+            "#111827"
+        ],
+        "textColorDefault": true,
+        "gridColor": [
+            "#e5e7eb"
+        ],
+        "gridColorDefault": true,
+        "removeOlder": "10",
+        "removeOlderUnit": "60",
+        "removeOlderPoints": "0",
+        "interpolation": "monotone",
+        "pointShape": "circle",
+        "pointRadius": "3",
+        "stackSeries": false,
+        "showLegend": true,
+        "action": "append",
+        "className": "",
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "46279f5613754b2b",
+        "type": "ui-chart",
+        "z": "0e0ff0ab2da54f27",
+        "group": "60a00e1968d44191",
+        "name": "Current Chart",
+        "order": 1,
+        "width": "12",
+        "height": 8,
+        "label": "Current",
+        "chartType": "line",
+        "bins": 0,
+        "category": "time",
+        "categoryType": "none",
+        "xAxisType": "time",
+        "xAxisProperty": "time",
+        "xAxisPropertyType": "msg",
+        "xAxisFormatType": "{HH}:{mm}:{ss}",
+        "xAxisFormat": "",
+        "xAxisLabel": "",
+        "yAxisLabel": "A",
+        "yAxisProperty": "payload",
+        "yAxisPropertyType": "msg",
+        "ymin": "",
+        "ymax": "",
+        "colors": [
+            "#1f6feb",
+            "#16a34a",
+            "#ef4444",
+            "#f59e0b",
+            "#8b5cf6",
+            "#0ea5e9",
+            "#6366f1"
+        ],
+        "textColor": [
+            "#111827"
+        ],
+        "textColorDefault": true,
+        "gridColor": [
+            "#e5e7eb"
+        ],
+        "gridColorDefault": true,
+        "removeOlder": "10",
+        "removeOlderUnit": "60",
+        "removeOlderPoints": "0",
+        "interpolation": "monotone",
+        "pointShape": "circle",
+        "pointRadius": "3",
+        "stackSeries": false,
+        "showLegend": true,
+        "action": "append",
+        "className": "",
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "5fd45cb6621245f9",
+        "type": "ui-chart",
+        "z": "0e0ff0ab2da54f27",
+        "group": "35d3985fd1ba4b2e",
+        "name": "Power Factor Chart",
+        "order": 1,
+        "width": "12",
+        "height": 8,
+        "label": "Power Factor",
+        "chartType": "line",
+        "bins": 0,
+        "category": "time",
+        "categoryType": "none",
+        "xAxisType": "time",
+        "xAxisProperty": "time",
+        "xAxisPropertyType": "msg",
+        "xAxisFormatType": "{HH}:{mm}:{ss}",
+        "xAxisFormat": "",
+        "xAxisLabel": "",
+        "yAxisLabel": "PF",
+        "yAxisProperty": "payload",
+        "yAxisPropertyType": "msg",
+        "ymin": "",
+        "ymax": "",
+        "colors": [
+            "#1f6feb",
+            "#16a34a",
+            "#ef4444",
+            "#f59e0b",
+            "#8b5cf6",
+            "#0ea5e9",
+            "#6366f1"
+        ],
+        "textColor": [
+            "#111827"
+        ],
+        "textColorDefault": true,
+        "gridColor": [
+            "#e5e7eb"
+        ],
+        "gridColorDefault": true,
+        "removeOlder": "10",
+        "removeOlderUnit": "60",
+        "removeOlderPoints": "0",
+        "interpolation": "monotone",
+        "pointShape": "circle",
+        "pointRadius": "3",
+        "stackSeries": false,
+        "showLegend": true,
+        "action": "append",
+        "className": "",
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "e51b5f467f434ce0",
+        "type": "ui-chart",
+        "z": "0e0ff0ab2da54f27",
+        "group": "9f83840543564801",
+        "name": "Frequency Chart",
+        "order": 1,
+        "width": "12",
+        "height": 8,
+        "label": "Frequency",
+        "chartType": "line",
+        "bins": 0,
+        "category": "time",
+        "categoryType": "none",
+        "xAxisType": "time",
+        "xAxisProperty": "time",
+        "xAxisPropertyType": "msg",
+        "xAxisFormatType": "{HH}:{mm}:{ss}",
+        "xAxisFormat": "",
+        "xAxisLabel": "",
+        "yAxisLabel": "Hz",
+        "yAxisProperty": "payload",
+        "yAxisPropertyType": "msg",
+        "ymin": "",
+        "ymax": "",
+        "colors": [
+            "#1f6feb",
+            "#16a34a",
+            "#ef4444",
+            "#f59e0b",
+            "#8b5cf6",
+            "#0ea5e9",
+            "#6366f1"
+        ],
+        "textColor": [
+            "#111827"
+        ],
+        "textColorDefault": true,
+        "gridColor": [
+            "#e5e7eb"
+        ],
+        "gridColorDefault": true,
+        "removeOlder": "10",
+        "removeOlderUnit": "60",
+        "removeOlderPoints": "0",
+        "interpolation": "monotone",
+        "pointShape": "circle",
+        "pointRadius": "3",
+        "stackSeries": false,
+        "showLegend": true,
+        "action": "append",
+        "className": "",
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "067108b930b54464",
+        "type": "switch",
+        "z": "0e0ff0ab2da54f27",
+        "name": "Voltage enabled?",
+        "property": "voltageEnabled",
+        "propertyType": "flow",
+        "rules": [
+            {
+                "t": "true"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 700,
+        "y": 360,
+        "wires": [
+            [
+                "47ae808c8eb64b56"
+            ]
+        ]
+    },
+    {
+        "id": "3c4eba2a7bc94a37",
+        "type": "switch",
+        "z": "0e0ff0ab2da54f27",
+        "name": "Current enabled?",
+        "property": "currentEnabled",
+        "propertyType": "flow",
+        "rules": [
+            {
+                "t": "true"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 700,
+        "y": 420,
+        "wires": [
+            [
+                "46279f5613754b2b"
+            ]
+        ]
+    },
+    {
+        "id": "6ca63c65e4354958",
+        "type": "switch",
+        "z": "0e0ff0ab2da54f27",
+        "name": "Power Factor enabled?",
+        "property": "pfEnabled",
+        "propertyType": "flow",
+        "rules": [
+            {
+                "t": "true"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 700,
+        "y": 480,
+        "wires": [
+            [
+                "5fd45cb6621245f9"
+            ]
+        ]
+    },
+    {
+        "id": "eac6a7ad216645d7",
+        "type": "switch",
+        "z": "0e0ff0ab2da54f27",
+        "name": "Frequency enabled?",
+        "property": "frequencyEnabled",
+        "propertyType": "flow",
+        "rules": [
+            {
+                "t": "true"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 700,
+        "y": 540,
+        "wires": [
+            [
+                "e51b5f467f434ce0"
+            ]
+        ]
+    },
+    {
+        "id": "0c130f61cb6a4d91",
+        "type": "ui-button",
+        "z": "0e0ff0ab2da54f27",
+        "group": "4a629acfd5734e54",
+        "name": "",
+        "label": "+ Zoom",
+        "order": 2,
+        "width": "2",
+        "height": "1",
+        "emulateClick": false,
+        "tooltip": "Zoom in",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "mdi-magnify-plus",
+        "iconPosition": "left",
+        "payload": "in",
+        "payloadType": "str",
+        "topic": "voltage",
+        "topicType": "str",
+        "buttonColor": "#0f172a",
+        "textColor": "#ffffff",
+        "iconColor": "#ffffff",
+        "enableClick": true,
+        "enablePointerdown": false,
+        "pointerdownPayload": "",
+        "pointerdownPayloadType": "str",
+        "enablePointerup": false,
+        "pointerupPayload": "",
+        "pointerupPayloadType": "str",
+        "x": 360,
+        "y": 420,
+        "wires": [
+            [
+                "6f1abbc7c1454207"
+            ]
+        ]
+    },
+    {
+        "id": "c0f017971a244509",
+        "type": "ui-button",
+        "z": "0e0ff0ab2da54f27",
+        "group": "4a629acfd5734e54",
+        "name": "",
+        "label": "- Zoom",
+        "order": 3,
+        "width": "2",
+        "height": "1",
+        "emulateClick": false,
+        "tooltip": "Zoom out",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "mdi-magnify-minus",
+        "iconPosition": "left",
+        "payload": "out",
+        "payloadType": "str",
+        "topic": "voltage",
+        "topicType": "str",
+        "buttonColor": "#0f172a",
+        "textColor": "#ffffff",
+        "iconColor": "#ffffff",
+        "enableClick": true,
+        "enablePointerdown": false,
+        "pointerdownPayload": "",
+        "pointerdownPayloadType": "str",
+        "enablePointerup": false,
+        "pointerupPayload": "",
+        "pointerupPayloadType": "str",
+        "x": 360,
+        "y": 440,
+        "wires": [
+            [
+                "6f1abbc7c1454207"
+            ]
+        ]
+    },
+    {
+        "id": "c54fbcbb9ca94fc3",
+        "type": "ui-button",
+        "z": "0e0ff0ab2da54f27",
+        "group": "60a00e1968d44191",
+        "name": "",
+        "label": "+ Zoom",
+        "order": 2,
+        "width": "2",
+        "height": "1",
+        "emulateClick": false,
+        "tooltip": "Zoom in",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "mdi-magnify-plus",
+        "iconPosition": "left",
+        "payload": "in",
+        "payloadType": "str",
+        "topic": "current",
+        "topicType": "str",
+        "buttonColor": "#0f172a",
+        "textColor": "#ffffff",
+        "iconColor": "#ffffff",
+        "enableClick": true,
+        "enablePointerdown": false,
+        "pointerdownPayload": "",
+        "pointerdownPayloadType": "str",
+        "enablePointerup": false,
+        "pointerupPayload": "",
+        "pointerupPayloadType": "str",
+        "x": 360,
+        "y": 540,
+        "wires": [
+            [
+                "6f1abbc7c1454207"
+            ]
+        ]
+    },
+    {
+        "id": "96e32a0e7bea4f20",
+        "type": "ui-button",
+        "z": "0e0ff0ab2da54f27",
+        "group": "60a00e1968d44191",
+        "name": "",
+        "label": "- Zoom",
+        "order": 3,
+        "width": "2",
+        "height": "1",
+        "emulateClick": false,
+        "tooltip": "Zoom out",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "mdi-magnify-minus",
+        "iconPosition": "left",
+        "payload": "out",
+        "payloadType": "str",
+        "topic": "current",
+        "topicType": "str",
+        "buttonColor": "#0f172a",
+        "textColor": "#ffffff",
+        "iconColor": "#ffffff",
+        "enableClick": true,
+        "enablePointerdown": false,
+        "pointerdownPayload": "",
+        "pointerdownPayloadType": "str",
+        "enablePointerup": false,
+        "pointerupPayload": "",
+        "pointerupPayloadType": "str",
+        "x": 360,
+        "y": 560,
+        "wires": [
+            [
+                "6f1abbc7c1454207"
+            ]
+        ]
+    },
+    {
+        "id": "a4f6101bd38d4267",
+        "type": "ui-button",
+        "z": "0e0ff0ab2da54f27",
+        "group": "35d3985fd1ba4b2e",
+        "name": "",
+        "label": "+ Zoom",
+        "order": 2,
+        "width": "2",
+        "height": "1",
+        "emulateClick": false,
+        "tooltip": "Zoom in",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "mdi-magnify-plus",
+        "iconPosition": "left",
+        "payload": "in",
+        "payloadType": "str",
+        "topic": "powerfactor",
+        "topicType": "str",
+        "buttonColor": "#0f172a",
+        "textColor": "#ffffff",
+        "iconColor": "#ffffff",
+        "enableClick": true,
+        "enablePointerdown": false,
+        "pointerdownPayload": "",
+        "pointerdownPayloadType": "str",
+        "enablePointerup": false,
+        "pointerupPayload": "",
+        "pointerupPayloadType": "str",
+        "x": 360,
+        "y": 660,
+        "wires": [
+            [
+                "6f1abbc7c1454207"
+            ]
+        ]
+    },
+    {
+        "id": "6b8813941355459b",
+        "type": "ui-button",
+        "z": "0e0ff0ab2da54f27",
+        "group": "35d3985fd1ba4b2e",
+        "name": "",
+        "label": "- Zoom",
+        "order": 3,
+        "width": "2",
+        "height": "1",
+        "emulateClick": false,
+        "tooltip": "Zoom out",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "mdi-magnify-minus",
+        "iconPosition": "left",
+        "payload": "out",
+        "payloadType": "str",
+        "topic": "powerfactor",
+        "topicType": "str",
+        "buttonColor": "#0f172a",
+        "textColor": "#ffffff",
+        "iconColor": "#ffffff",
+        "enableClick": true,
+        "enablePointerdown": false,
+        "pointerdownPayload": "",
+        "pointerdownPayloadType": "str",
+        "enablePointerup": false,
+        "pointerupPayload": "",
+        "pointerupPayloadType": "str",
+        "x": 360,
+        "y": 680,
+        "wires": [
+            [
+                "6f1abbc7c1454207"
+            ]
+        ]
+    },
+    {
+        "id": "25550adf00934a43",
+        "type": "ui-button",
+        "z": "0e0ff0ab2da54f27",
+        "group": "9f83840543564801",
+        "name": "",
+        "label": "+ Zoom",
+        "order": 2,
+        "width": "2",
+        "height": "1",
+        "emulateClick": false,
+        "tooltip": "Zoom in",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "mdi-magnify-plus",
+        "iconPosition": "left",
+        "payload": "in",
+        "payloadType": "str",
+        "topic": "frequency",
+        "topicType": "str",
+        "buttonColor": "#0f172a",
+        "textColor": "#ffffff",
+        "iconColor": "#ffffff",
+        "enableClick": true,
+        "enablePointerdown": false,
+        "pointerdownPayload": "",
+        "pointerdownPayloadType": "str",
+        "enablePointerup": false,
+        "pointerupPayload": "",
+        "pointerupPayloadType": "str",
+        "x": 360,
+        "y": 780,
+        "wires": [
+            [
+                "6f1abbc7c1454207"
+            ]
+        ]
+    },
+    {
+        "id": "9472781c6d614d8b",
+        "type": "ui-button",
+        "z": "0e0ff0ab2da54f27",
+        "group": "9f83840543564801",
+        "name": "",
+        "label": "- Zoom",
+        "order": 3,
+        "width": "2",
+        "height": "1",
+        "emulateClick": false,
+        "tooltip": "Zoom out",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "mdi-magnify-minus",
+        "iconPosition": "left",
+        "payload": "out",
+        "payloadType": "str",
+        "topic": "frequency",
+        "topicType": "str",
+        "buttonColor": "#0f172a",
+        "textColor": "#ffffff",
+        "iconColor": "#ffffff",
+        "enableClick": true,
+        "enablePointerdown": false,
+        "pointerdownPayload": "",
+        "pointerdownPayloadType": "str",
+        "enablePointerup": false,
+        "pointerupPayload": "",
+        "pointerupPayloadType": "str",
+        "x": 360,
+        "y": 800,
+        "wires": [
+            [
+                "6f1abbc7c1454207"
+            ]
+        ]
+    }
+]
