@@ -1,0 +1,1070 @@
+[
+    {
+        "id": "8ffaea47a084d313",
+        "type": "tab",
+        "label": "Flow 1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "2206eed312db39f6",
+        "type": "modbus-client",
+        "name": "ENERGY METER",
+        "clienttype": "serial",
+        "bufferCommands": true,
+        "stateLogEnabled": false,
+        "queueLogEnabled": false,
+        "failureLogEnabled": true,
+        "tcpHost": "127.0.0.1",
+        "tcpPort": 502,
+        "tcpType": "DEFAULT",
+        "serialPort": "COM3",
+        "serialType": "RTU-BUFFERD",
+        "serialBaudrate": "9600",
+        "serialDatabits": 8,
+        "serialStopbits": "2",
+        "serialParity": "none",
+        "serialConnectionDelay": 100,
+        "serialAsciiResponseStartDelimiter": "0x3A",
+        "unit_id": 1,
+        "commandDelay": 1,
+        "clientTimeout": 1000,
+        "reconnectOnTimeout": true,
+        "reconnectTimeout": 2000,
+        "parallelUnitIdsAllowed": true,
+        "showErrors": false,
+        "showWarnings": true,
+        "showLogs": true
+    },
+    {
+        "id": "c62d503a64afdcce",
+        "type": "ui-base",
+        "name": "My Dashboard",
+        "path": "/dashboard",
+        "appIcon": "",
+        "includeClientData": true,
+        "acceptsClientConfig": [
+            "ui-notification",
+            "ui-control"
+        ],
+        "showPathInSidebar": false,
+        "headerContent": "page",
+        "navigationStyle": "default",
+        "titleBarStyle": "default",
+        "showReconnectNotification": true,
+        "notificationDisplayTime": 1,
+        "showDisconnectNotification": true,
+        "allowInstall": false
+    },
+    {
+        "id": "555931b7fa000dc0",
+        "type": "ui-theme",
+        "name": "Default Theme",
+        "colors": {
+            "surface": "#ffffff",
+            "primary": "#0094CE",
+            "bgPage": "#eeeeee",
+            "groupBg": "#ffffff",
+            "groupOutline": "#cccccc"
+        },
+        "sizes": {
+            "density": "default",
+            "pagePadding": "12px",
+            "groupGap": "12px",
+            "groupBorderRadius": "4px",
+            "widgetGap": "12px"
+        }
+    },
+    {
+        "id": "bae6bcf87e124483",
+        "type": "ui-page",
+        "name": "Page 1",
+        "ui": "c62d503a64afdcce",
+        "path": "/page1",
+        "icon": "home",
+        "layout": "grid",
+        "theme": "555931b7fa000dc0",
+        "breakpoints": [
+            {
+                "name": "Default",
+                "px": 0,
+                "cols": 3
+            },
+            {
+                "name": "Tablet",
+                "px": 576,
+                "cols": 6
+            },
+            {
+                "name": "Small Desktop",
+                "px": 768,
+                "cols": 9
+            },
+            {
+                "name": "Desktop",
+                "px": 1024,
+                "cols": 12
+            }
+        ],
+        "order": 1,
+        "className": "",
+        "visible": true,
+        "disabled": false
+    },
+    {
+        "id": "29d13868f9bebc41",
+        "type": "ui-group",
+        "name": "Group 1",
+        "page": "bae6bcf87e124483",
+        "width": "12",
+        "height": 1,
+        "order": 1,
+        "showTitle": true,
+        "className": "",
+        "visible": "true",
+        "disabled": "false",
+        "groupType": "default"
+    },
+    {
+        "id": "e1ef9fecf19f684a",
+        "type": "modbus-read",
+        "z": "8ffaea47a084d313",
+        "name": "MODBUS READ",
+        "topic": "",
+        "showStatusActivities": true,
+        "logIOActivities": false,
+        "showErrors": true,
+        "showWarnings": true,
+        "unitid": "1",
+        "dataType": "InputRegister",
+        "adr": "20",
+        "quantity": "8",
+        "rate": "2",
+        "rateUnit": "s",
+        "delayOnStart": false,
+        "enableDeformedMessages": false,
+        "startDelayTime": "",
+        "server": "2206eed312db39f6",
+        "useIOFile": false,
+        "ioFile": "",
+        "useIOForPayload": false,
+        "emptyMsgOnFail": true,
+        "x": 120,
+        "y": 40,
+        "wires": [
+            [
+                "3d4b08513cb812eb"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "3d4b08513cb812eb",
+        "type": "buffer-parser",
+        "z": "8ffaea47a084d313",
+        "name": "",
+        "data": "payload",
+        "dataType": "msg",
+        "specification": "spec",
+        "specificationType": "ui",
+        "items": [
+            {
+                "type": "floatle",
+                "name": "Voltage",
+                "offset": 0,
+                "length": 1,
+                "offsetbit": 0,
+                "scale": "1",
+                "mask": ""
+            },
+            {
+                "type": "floatle",
+                "name": "Current",
+                "offset": 4,
+                "length": 1,
+                "offsetbit": 0,
+                "scale": "1",
+                "mask": ""
+            },
+            {
+                "type": "floatle",
+                "name": "PowerFactor",
+                "offset": 8,
+                "length": 1,
+                "offsetbit": 0,
+                "scale": "1",
+                "mask": ""
+            },
+            {
+                "type": "floatle",
+                "name": "Frequency",
+                "offset": 12,
+                "length": 1,
+                "offsetbit": 0,
+                "scale": "1",
+                "mask": ""
+            }
+        ],
+        "swap1": "swap16",
+        "swap2": "",
+        "swap3": "",
+        "swap1Type": "swap",
+        "swap2Type": "swap",
+        "swap3Type": "swap",
+        "msgProperty": "payload",
+        "msgPropertyType": "str",
+        "resultType": "keyvalue",
+        "resultTypeType": "return",
+        "multipleResult": false,
+        "fanOutMultipleResult": false,
+        "setTopic": true,
+        "outputs": 1,
+        "x": 250,
+        "y": 100,
+        "wires": [
+            [
+                "3f764f08e0c7a1d0",
+                "6af20763a6261773",
+                "20614e53a644735e",
+                "e2ba33b855a56616",
+                "92ce4fcd5f1bdb0b",
+                "b34dd19478ebbff9"
+            ]
+        ]
+    },
+    {
+        "id": "4713a745d6aee224",
+        "type": "debug",
+        "z": "8ffaea47a084d313",
+        "name": "debug 1",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 560,
+        "y": 40,
+        "wires": []
+    },
+    {
+        "id": "66e6b3c3c8981f89",
+        "type": "ui-gauge",
+        "z": "8ffaea47a084d313",
+        "name": "Frequency Gauge",
+        "group": "29d13868f9bebc41",
+        "order": 13,
+        "value": "payload",
+        "valueType": "msg",
+        "width": "6",
+        "height": "6",
+        "gtype": "gauge-half",
+        "gstyle": "rounded",
+        "title": "Frequency",
+        "alwaysShowTitle": false,
+        "units": "Hz",
+        "icon": "",
+        "prefix": "",
+        "suffix": "",
+        "segments": [
+            {
+                "from": "0",
+                "color": "#ea5545",
+                "text": "",
+                "textType": "label"
+            },
+            {
+                "from": "49.5",
+                "color": "#ef9b20",
+                "text": "",
+                "textType": "label"
+            },
+            {
+                "from": "49.8",
+                "color": "#87bc45",
+                "text": "",
+                "textType": "label"
+            },
+            {
+                "from": "50.2",
+                "color": "#ef9b20",
+                "text": "",
+                "textType": "label"
+            },
+            {
+                "from": "50.5",
+                "color": "#ea5545",
+                "text": "",
+                "textType": "label"
+            }
+        ],
+        "min": 48,
+        "max": 52,
+        "sizeThickness": "30",
+        "sizeGap": "",
+        "sizeKeyThickness": "",
+        "className": "",
+        "x": 530,
+        "y": 400,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "89dc22942975b9ac",
+        "type": "ui-chart",
+        "z": "8ffaea47a084d313",
+        "group": "29d13868f9bebc41",
+        "name": "Frequency Chart",
+        "label": "Frequency (Hz)",
+        "order": 12,
+        "chartType": "line",
+        "category": "",
+        "categoryType": "none",
+        "xAxisLabel": "Time",
+        "xAxisProperty": "timestamp",
+        "xAxisPropertyType": "timestamp",
+        "xAxisType": "time",
+        "xAxisFormat": "",
+        "xAxisFormatType": "auto",
+        "xmin": "",
+        "xmax": "",
+        "yAxisLabel": "Frequency (Hz)",
+        "yAxisProperty": "payload",
+        "yAxisPropertyType": "msg",
+        "ymin": "49",
+        "ymax": "51",
+        "bins": "",
+        "stackSeries": false,
+        "pointRadius": 2,
+        "showLegend": true,
+        "removeOlder": 1,
+        "removeOlderUnit": "3600",
+        "removeOlderPoints": "100",
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "textColor": [
+            "#666666"
+        ],
+        "textColorDefault": true,
+        "gridColor": [
+            "#e5e5e5"
+        ],
+        "gridColorDefault": true,
+        "width": "6",
+        "height": "6",
+        "className": "",
+        "interpolation": "linear",
+        "x": 530,
+        "y": 360,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "8e90672e8f13796b",
+        "type": "ui-gauge",
+        "z": "8ffaea47a084d313",
+        "name": "Power Factor Gauge",
+        "group": "29d13868f9bebc41",
+        "order": 11,
+        "value": "payload",
+        "valueType": "msg",
+        "width": "6",
+        "height": "6",
+        "gtype": "gauge-half",
+        "title": "Power Factor",
+        "alwaysShowTitle": false,
+        "units": "",
+        "icon": "",
+        "prefix": "",
+        "suffix": "",
+        "segments": [
+            {
+                "from": "0",
+                "color": "#ea5545",
+                "text": "",
+                "textType": "label"
+            },
+            {
+                "from": "0.7",
+                "color": "#ef9b20",
+                "text": "",
+                "textType": "label"
+            },
+            {
+                "from": "0.85",
+                "color": "#edbf33",
+                "text": "",
+                "textType": "label"
+            },
+            {
+                "from": "0.9",
+                "color": "#87bc45",
+                "text": "",
+                "textType": "label"
+            }
+        ],
+        "min": 0,
+        "max": 1,
+        "sizeThickness": "30",
+        "sizeGap": "",
+        "sizeKeyThickness": "",
+        "className": "",
+        "x": 540,
+        "y": 300,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "279b5c4c16ac3ae5",
+        "type": "ui-chart",
+        "z": "8ffaea47a084d313",
+        "group": "29d13868f9bebc41",
+        "name": "Power Factor Chart",
+        "label": "Power Factor",
+        "order": 10,
+        "chartType": "line",
+        "category": "",
+        "categoryType": "none",
+        "xAxisLabel": "Time",
+        "xAxisProperty": "timestamp",
+        "xAxisPropertyType": "timestamp",
+        "xAxisType": "time",
+        "xAxisFormat": "",
+        "xAxisFormatType": "auto",
+        "xmin": "",
+        "xmax": "",
+        "yAxisLabel": "Power Factor",
+        "yAxisProperty": "payload",
+        "yAxisPropertyType": "msg",
+        "ymin": "0",
+        "ymax": "1",
+        "bins": "",
+        "stackSeries": false,
+        "pointRadius": 2,
+        "showLegend": true,
+        "removeOlder": 1,
+        "removeOlderUnit": "3600",
+        "removeOlderPoints": "100",
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "textColor": [
+            "#666666"
+        ],
+        "textColorDefault": true,
+        "gridColor": [
+            "#e5e5e5"
+        ],
+        "gridColorDefault": true,
+        "width": "6",
+        "height": "6",
+        "className": "",
+        "interpolation": "linear",
+        "x": 530,
+        "y": 260,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "5c1a846b921e012c",
+        "type": "ui-gauge",
+        "z": "8ffaea47a084d313",
+        "name": "Voltage Gauge",
+        "group": "29d13868f9bebc41",
+        "order": 7,
+        "value": "payload",
+        "valueType": "msg",
+        "width": "6",
+        "height": "6",
+        "gtype": "gauge-half",
+        "gstyle": "rounded",
+        "title": "Current Voltage",
+        "alwaysShowTitle": false,
+        "units": "V",
+        "icon": "",
+        "prefix": "",
+        "suffix": "",
+        "segments": [
+            {
+                "from": "0",
+                "color": "#ea5545",
+                "text": "",
+                "textType": "label"
+            },
+            {
+                "from": "210",
+                "color": "#f46a9b",
+                "text": "",
+                "textType": "label"
+            },
+            {
+                "from": "215",
+                "color": "#ef9b20",
+                "text": "",
+                "textType": "label"
+            },
+            {
+                "from": "218",
+                "color": "#87bc45",
+                "text": "",
+                "textType": "label"
+            },
+            {
+                "from": "232",
+                "color": "#ef9b20",
+                "text": "",
+                "textType": "label"
+            },
+            {
+                "from": "240",
+                "color": "#ea5545",
+                "text": "",
+                "textType": "label"
+            }
+        ],
+        "min": 0,
+        "max": 250,
+        "sizeThickness": "30",
+        "sizeGap": "",
+        "sizeKeyThickness": "",
+        "className": "",
+        "x": 540,
+        "y": 120,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "43d5a7f4ebdb0d27",
+        "type": "ui-chart",
+        "z": "8ffaea47a084d313",
+        "group": "29d13868f9bebc41",
+        "name": "Voltage Chart",
+        "label": "Voltage (V)",
+        "order": 6,
+        "chartType": "line",
+        "category": "",
+        "categoryType": "none",
+        "xAxisLabel": "Time",
+        "xAxisProperty": "timestamp",
+        "xAxisPropertyType": "timestamp",
+        "xAxisType": "time",
+        "xAxisFormat": "",
+        "xAxisFormatType": "{HH}:{mm}:{ss}",
+        "xmin": "",
+        "xmax": "",
+        "yAxisLabel": "Voltage (V)",
+        "yAxisProperty": "payload",
+        "yAxisPropertyType": "msg",
+        "ymin": "200",
+        "ymax": "250",
+        "bins": "",
+        "stackSeries": false,
+        "pointRadius": 2,
+        "showLegend": true,
+        "removeOlder": "5",
+        "removeOlderUnit": "60",
+        "removeOlderPoints": "100",
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "textColor": [
+            "#666666"
+        ],
+        "textColorDefault": true,
+        "gridColor": [
+            "#e5e5e5"
+        ],
+        "gridColorDefault": true,
+        "width": "6",
+        "height": "6",
+        "className": "",
+        "interpolation": "linear",
+        "x": 540,
+        "y": 80,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "b1923e3678a57104",
+        "type": "ui-chart",
+        "z": "8ffaea47a084d313",
+        "group": "29d13868f9bebc41",
+        "name": "Current Chart",
+        "label": "Ampere (A)",
+        "order": 8,
+        "chartType": "line",
+        "category": "",
+        "categoryType": "none",
+        "xAxisLabel": "Time",
+        "xAxisProperty": "timestamp",
+        "xAxisPropertyType": "timestamp",
+        "xAxisType": "time",
+        "xAxisFormat": "",
+        "xAxisFormatType": "{HH}:{mm}:{ss}",
+        "xmin": "",
+        "xmax": "",
+        "yAxisLabel": "Ampere (A)",
+        "yAxisProperty": "payload",
+        "yAxisPropertyType": "msg",
+        "ymin": "0",
+        "ymax": "5",
+        "bins": "",
+        "stackSeries": false,
+        "pointRadius": 2,
+        "showLegend": true,
+        "removeOlder": "5",
+        "removeOlderUnit": "60",
+        "removeOlderPoints": "100",
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "textColor": [
+            "#666666"
+        ],
+        "textColorDefault": true,
+        "gridColor": [
+            "#e5e5e5"
+        ],
+        "gridColorDefault": true,
+        "width": "6",
+        "height": "6",
+        "className": "",
+        "interpolation": "linear",
+        "x": 540,
+        "y": 180,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "be62e525fbb6305e",
+        "type": "ui-gauge",
+        "z": "8ffaea47a084d313",
+        "name": "Current Gauge",
+        "group": "29d13868f9bebc41",
+        "order": 9,
+        "value": "payload",
+        "valueType": "msg",
+        "width": "6",
+        "height": "6",
+        "gtype": "gauge-half",
+        "gstyle": "rounded",
+        "title": "Current Ampere",
+        "alwaysShowTitle": false,
+        "units": "A",
+        "icon": "",
+        "prefix": "",
+        "suffix": "",
+        "segments": [
+            {
+                "from": "0",
+                "color": "#ea5545",
+                "text": "",
+                "textType": "label"
+            },
+            {
+                "from": "210",
+                "color": "#f46a9b",
+                "text": "",
+                "textType": "label"
+            },
+            {
+                "from": "215",
+                "color": "#ef9b20",
+                "text": "",
+                "textType": "label"
+            },
+            {
+                "from": "218",
+                "color": "#87bc45",
+                "text": "",
+                "textType": "label"
+            },
+            {
+                "from": "232",
+                "color": "#ef9b20",
+                "text": "",
+                "textType": "label"
+            },
+            {
+                "from": "240",
+                "color": "#ea5545",
+                "text": "",
+                "textType": "label"
+            }
+        ],
+        "min": 0,
+        "max": 250,
+        "sizeThickness": "30",
+        "sizeGap": "",
+        "sizeKeyThickness": "",
+        "className": "",
+        "x": 540,
+        "y": 220,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "3f764f08e0c7a1d0",
+        "type": "function",
+        "z": "8ffaea47a084d313",
+        "name": "function 1",
+        "func": "let voltage = +msg.payload.Voltage.toFixed(2);\nlet current = +msg.payload.Current.toFixed(2);\nlet pf = +msg.payload.PowerFactor.toFixed(2);\nlet freq = +msg.payload.Frequency.toFixed(2);\n\nreturn [\n    { payload: voltage },\n    { payload: current },\n    { payload: pf },\n    { payload: freq }\n];\n",
+        "outputs": 4,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 240,
+        "y": 220,
+        "wires": [
+            [
+                "5c1a846b921e012c",
+                "43d5a7f4ebdb0d27"
+            ],
+            [
+                "be62e525fbb6305e",
+                "b1923e3678a57104"
+            ],
+            [
+                "8e90672e8f13796b",
+                "279b5c4c16ac3ae5"
+            ],
+            [
+                "66e6b3c3c8981f89",
+                "89dc22942975b9ac"
+            ]
+        ]
+    },
+    {
+        "id": "5730fd17773c7e65",
+        "type": "function",
+        "z": "8ffaea47a084d313",
+        "name": "function 2",
+        "func": "// Generate two random values\nconst val1 = Math.floor(Math.random() * 100);\nconst val2 = Math.floor(Math.random() * 100);\n\n// Create the first message for \"Series 1\"\nconst msg1 = {\n    topic: \"Temperature\",\n    payload: val1\n};\n\n// Create the second message for \"Series 2\"\nconst msg2 = {\n    topic: \"Humidity\",\n    payload: val2\n};\n\n// Return an array of messages to send them both at once\nreturn [[msg1, msg2]];",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 360,
+        "y": 460,
+        "wires": [
+            [
+                "bcbfc9a79f9bf295"
+            ]
+        ]
+    },
+    {
+        "id": "b430c9431d691dc0",
+        "type": "inject",
+        "z": "8ffaea47a084d313",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "5",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{}",
+        "payloadType": "json",
+        "x": 90,
+        "y": 440,
+        "wires": [
+            [
+                "5730fd17773c7e65"
+            ]
+        ]
+    },
+    {
+        "id": "3d55834bd01a34da",
+        "type": "ui-chart",
+        "z": "8ffaea47a084d313",
+        "group": "29d13868f9bebc41",
+        "name": "",
+        "label": "chart",
+        "order": 14,
+        "chartType": "line",
+        "category": "topic",
+        "categoryType": "msg",
+        "xAxisLabel": "",
+        "xAxisProperty": "",
+        "xAxisPropertyType": "timestamp",
+        "xAxisType": "time",
+        "xAxisFormat": "",
+        "xAxisFormatType": "{HH}:{mm}:{ss}",
+        "xmin": "",
+        "xmax": "",
+        "yAxisLabel": "",
+        "yAxisProperty": "payload",
+        "yAxisPropertyType": "msg",
+        "ymin": "0",
+        "ymax": "100",
+        "bins": 10,
+        "action": "append",
+        "stackSeries": false,
+        "pointShape": "circle",
+        "pointRadius": "6",
+        "showLegend": true,
+        "removeOlder": "15",
+        "removeOlderUnit": "60",
+        "removeOlderPoints": "",
+        "colors": [
+            "#0095ff",
+            "#ff0000",
+            "#ff7f0e",
+            "#2ca02c",
+            "#a347e1",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "textColor": [
+            "#666666"
+        ],
+        "textColorDefault": true,
+        "gridColor": [
+            "#e5e5e5"
+        ],
+        "gridColorDefault": true,
+        "width": "12",
+        "height": 8,
+        "className": "",
+        "interpolation": "linear",
+        "x": 670,
+        "y": 460,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "bcbfc9a79f9bf295",
+        "type": "function",
+        "z": "8ffaea47a084d313",
+        "name": "function 4",
+        "func": "msg.ui_update = {\n    \"chartOptions\": {\n        \"dataZoom\": [{\n            \"type\": \"slider\",\n            \"showDetail\": true,\n            \"realtime\": true,\n            \"textStyle\": { \"fontSize\": 16, \"fontWeight\": \"bold\" },\n            \"bottom\": 10\n        }],\n        \"grid\": { \"bottom\": 100 }\n    }\n};\n// msg.payload remains the array of numbers from func 2\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 500,
+        "y": 460,
+        "wires": [
+            [
+                "3d55834bd01a34da"
+            ]
+        ]
+    },
+    {
+        "id": "6af20763a6261773",
+        "type": "ui-table",
+        "z": "8ffaea47a084d313",
+        "group": "29d13868f9bebc41",
+        "name": "",
+        "label": "TABLE",
+        "order": 1,
+        "width": "0",
+        "height": "0",
+        "maxrows": "5",
+        "passthru": false,
+        "autocols": true,
+        "showSearch": false,
+        "deselect": true,
+        "selectionType": "click",
+        "columns": [
+            {
+                "title": "",
+                "key": "",
+                "keyType": "key",
+                "type": "text",
+                "width": "",
+                "align": "start"
+            }
+        ],
+        "mobileBreakpoint": "",
+        "mobileBreakpointType": "none",
+        "action": "append",
+        "className": "",
+        "x": 550,
+        "y": 520,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "fd388bc31591b96f",
+        "type": "function",
+        "z": "8ffaea47a084d313",
+        "name": "function 3",
+        "func": "let voltage = +msg.payload.Voltage.toFixed(2);\nlet current = +msg.payload.Current.toFixed(2);\nlet pf = +msg.payload.PowerFactor.toFixed(2);\nlet freq = +msg.payload.Frequency.toFixed(2);\n\nreturn msg;\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 240,
+        "y": 300,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "20614e53a644735e",
+        "type": "ui-text",
+        "z": "8ffaea47a084d313",
+        "group": "29d13868f9bebc41",
+        "order": 2,
+        "width": "3",
+        "height": "3",
+        "name": "",
+        "label": "VOLTAGE",
+        "format": "{{msg.payload}}",
+        "layout": "col-center",
+        "style": true,
+        "font": "Arial Black,Arial Black,Gadget,sans-serif",
+        "fontSize": 16,
+        "color": "#717171",
+        "wrapText": false,
+        "className": "",
+        "value": "payload.Voltage",
+        "valueType": "msg",
+        "x": 570,
+        "y": 580,
+        "wires": []
+    },
+    {
+        "id": "e2ba33b855a56616",
+        "type": "ui-text",
+        "z": "8ffaea47a084d313",
+        "group": "29d13868f9bebc41",
+        "order": 3,
+        "width": "3",
+        "height": "3",
+        "name": "",
+        "label": "CURRENT",
+        "format": "{{msg.payload}}",
+        "layout": "col-center",
+        "style": true,
+        "font": "Arial Black,Arial Black,Gadget,sans-serif",
+        "fontSize": 16,
+        "color": "#717171",
+        "wrapText": false,
+        "className": "",
+        "value": "payload.Current",
+        "valueType": "msg",
+        "x": 570,
+        "y": 640,
+        "wires": []
+    },
+    {
+        "id": "92ce4fcd5f1bdb0b",
+        "type": "ui-text",
+        "z": "8ffaea47a084d313",
+        "group": "29d13868f9bebc41",
+        "order": 4,
+        "width": "3",
+        "height": "3",
+        "name": "",
+        "label": "POWER FACTOR",
+        "format": "{{msg.payload}}",
+        "layout": "col-center",
+        "style": true,
+        "font": "Arial Black,Arial Black,Gadget,sans-serif",
+        "fontSize": 16,
+        "color": "#717171",
+        "wrapText": false,
+        "className": "",
+        "value": "payload.PowerFactor",
+        "valueType": "msg",
+        "x": 590,
+        "y": 700,
+        "wires": []
+    },
+    {
+        "id": "b34dd19478ebbff9",
+        "type": "ui-text",
+        "z": "8ffaea47a084d313",
+        "group": "29d13868f9bebc41",
+        "order": 5,
+        "width": "3",
+        "height": "3",
+        "name": "",
+        "label": "FREQUENCY",
+        "format": "{{msg.payload}}",
+        "layout": "col-center",
+        "style": true,
+        "font": "Arial Black,Arial Black,Gadget,sans-serif",
+        "fontSize": 16,
+        "color": "#717171",
+        "wrapText": false,
+        "className": "",
+        "value": "payload.Frequency",
+        "valueType": "msg",
+        "x": 580,
+        "y": 760,
+        "wires": []
+    },
+    {
+        "id": "0406bf3e8af62873",
+        "type": "global-config",
+        "env": [],
+        "modules": {
+            "node-red-contrib-modbus": "5.45.2",
+            "@flowfuse/node-red-dashboard": "1.30.2",
+            "node-red-contrib-buffer-parser": "3.2.2"
+        }
+    }
+]
